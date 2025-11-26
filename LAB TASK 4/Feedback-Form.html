@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 Ultimate Feedback Experience</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #0f0c29, #302b63, #24243e);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== Animated Particles ===== */
+body::before {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.05;
+  animation: drift 60s linear infinite;
+}
+@keyframes drift {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-100px, -100px); }
+}
+
+/* ===== Titles ===== */
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+  animation: glowText 2s ease-in-out infinite alternate;
+  margin-bottom: 10px;
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 15px #00e5ff; }
+  to { text-shadow: 0 0 40px #00ffff; }
+}
+
+h2 {
+  color: #00e5ff;
+  margin-top: 40px;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* ===== Glass Card ===== */
+form {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+  margin-top: 20px;
+}
+form:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 60px rgba(0, 255, 255, 0.5);
+}
+
+/* ===== Labels and Inputs ===== */
+label {
+  display: inline-block;
+  width: 150px;
+  font-weight: 600;
+  color: #00e5ff;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 60%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 15px #00e5ff;
+  background: rgba(255,255,255,0.25);
+}
+
+/* ===== Submit Button ===== */
+input[type="submit"] {
+  background: linear-gradient(135deg, #00e5ff, #00bcd4);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 35px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px #00bcd4;
+  transition: all 0.3s ease;
+}
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, #00bcd4, #00e5ff);
+  transform: scale(1.08);
+  box-shadow: 0 0 40px #00e5ff;
+}
+
+/* ===== Multimedia Section ===== */
+audio, video {
+  display: block;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
+  transition: transform 0.4s ease;
+}
+audio:hover, video:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Canvas Section ===== */
+#myCanvas {
+  display: block;
+  margin: 40px auto;
+  border-radius: 20px;
+  background: radial-gradient(circle, #00111a, #000814);
+  box-shadow: 0 0 40px rgba(0,255,255,0.4);
+  transition: all 0.4s ease;
+}
+#myCanvas:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 80px rgba(0,255,255,0.8);
+}
+
+/* ===== Floating Glow Particles ===== */
+@keyframes floatParticle {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.8; }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  label {
+    width: 100%;
+  }
+  input[type="text"], input[type="email"], select, textarea {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>🌌 Feedback Form</h1>
+
+<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required placeholder="Enter your name"><br><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+
+  <label>Gender:</label>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br><br>
+
+  <label>Interests:</label>
+  <input type="checkbox" id="coding" name="interest" value="coding">
+  <label for="coding">Coding</label>
+  <input type="checkbox" id="design" name="interest" value="design">
+  <label for="design">Design</label><br><br>
+
+  <label for="experience">Experience:</label>
+  <select id="experience" name="experience">
+    <option value="">Select</option>
+    <option value="beginner">Beginner</option>
+    <option value="intermediate">Intermediate</option>
+    <option value="advanced">Advanced</option>
+  </select><br><br>
+
+  <label for="comments">Comments:</label><br>
+  <textarea id="comments" name="comments" rows="4" placeholder="Your thoughts..."></textarea><br><br>
+
+  <input type="submit" value="🚀 Send Feedback">
+</form>
+
+<h2>🎵 Multimedia Zone</h2>
+<audio controls>
+  <source src="Bol_Kaffara.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<video width="400" controls>
+  <source src="Pasoori.mp4" type="video/mp4">
+  Your browser does not support the video element.
+</video>
+
+<h2>✨ Canvas Art</h2>
+<canvas id="myCanvas" width="500" height="300"></canvas>
+
+<script>
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+function drawCosmicFace() {
+  const gradient = ctx.createRadialGradient(250, 150, 30, 250, 150, 150);
+  gradient.addColorStop(0, "#00e5ff");
+  gradient.addColorStop(1, "#00111a");
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 500, 300);
+
+  // Neon smiley
+  ctx.beginPath();
+  ctx.arc(250, 150, 80, 0, Math.PI * 2);
+  ctx.shadowBlur = 30;
+  ctx.shadowColor = "#00ffff";
+  ctx.strokeStyle = "#00e5ff";
+  ctx.lineWidth = 5;
+  ctx.stroke();
+
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = "#00e5ff";
+  ctx.beginPath();
+  ctx.arc(220, 130, 10, 0, Math.PI * 2);
+  ctx.arc(280, 130, 10, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(250, 160, 45, 0, Math.PI, false);
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = "#00ffff";
+  ctx.stroke();
+
+  ctx.shadowBlur = 0;
+  ctx.font = "bold 24px Poppins";
+  ctx.fillStyle = "#00ffff";
+  ctx.textAlign = "center";
+  ctx.fillText("Thank You, Space Explorer!", 250, 280);
+}
+
+drawCosmicFace();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌈 Lab 4: Feedback Form & Multimedia</title>
+
+  <style>
+    /* ====== General Page Styling ====== */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #f6d365, #fda085, #ff9a9e, #fad0c4);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ====== Form Styling ====== */
+    form {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      width: 90%;
+      max-width: 600px;
+      margin-top: 25px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      transition: all 0.4s ease;
+    }
+
+    form:hover {
+      transform: scale(1.03);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      border-color: rgba(255, 255, 255, 0.8);
+    }
+
+    label {
+      display: inline-block;
+      width: 150px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 60%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.7);
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 0 10px rgba(255, 111, 97, 0.8);
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(135deg, #ff9966, #ff5e62);
+      color: white;
+      font-weight: 700;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 35px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 6px 15px rgba(255, 94, 98, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(135deg, #ff5e62, #ff9966);
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(255, 111, 97, 0.7);
+    }
+
+    /* ====== Multimedia Styling ====== */
+    audio, video {
+      display: block;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.4s ease;
+    }
+
+    audio:hover, video:hover {
+      transform: scale(1.05);
+    }
+
+    /* ====== Canvas Styling ====== */
+    #myCanvas {
+      display: block;
+      margin: 40px auto;
+      border: 3px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.4), 0 0 30px rgba(255,255,255,0.2);
+      background: radial-gradient(circle at top left, #fff7e6, #ffd180);
+      transition: all 0.4s ease;
+    }
+
+    #myCanvas:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+    }
+
+    /* ====== Responsive Design ====== */
+    @media (max-width: 600px) {
+      label {
+        width: 100%;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      select,
+      textarea {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💬 Share Your Feedback</h1>
+
+  <form action="#" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+
+    <label>Gender:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+
+    <label>Interests:</label>
+    <input type="checkbox" id="coding" name="interest" value="coding">
+    <label for="coding">Coding</label>
+    <input type="checkbox" id="design" name="interest" value="design">
+    <label for="design">Design</label><br><br>
+
+    <label for="experience">Experience Level:</label>
+    <select id="experience" name="experience">
+      <option value="">Select</option>
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select><br><br>
+
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Your feedback..."></textarea><br><br>
+
+    <input type="submit" value="✨ Submit Feedback">
+  </form>
+
+  <h2>🎶 Multimedia Showcase</h2>
+  <audio controls>
+    <source src="Bol_Kaffara.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <video width="400" controls>
+    <source src="Pasoori.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+
+  <h2>🎨 Canvas Feedback Art</h2>
+  <canvas id="myCanvas" width="500" height="300"></canvas>
+
+  <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Gradient background
+    const gradient = ctx.createLinearGradient(0, 0, 500, 300);
+    gradient.addColorStop(0, "#fff3e0");
+    gradient.addColorStop(1, "#ffe0b2");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 500, 300);
+
+    // Smiley face
+    function drawSmiley() {
+      ctx.beginPath();
+      ctx.arc(250, 150, 80, 0, Math.PI * 2);
+      ctx.fillStyle = "#FFEB3B";
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = "#FFD740";
+      ctx.fill();
+      ctx.strokeStyle = "#FBC02D";
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.shadowBlur = 0;
+      ctx.beginPath();
+      ctx.arc(220, 130, 10, 0, Math.PI * 2);
+      ctx.arc(280, 130, 10, 0, Math.PI * 2);
+      ctx.fillStyle = "#333";
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(250, 160, 45, 0, Math.PI, false);
+      ctx.lineWidth = 6;
+      ctx.strokeStyle = "#333";
+      ctx.stroke();
+
+      ctx.font = "bold 26px Poppins";
+      ctx.fillStyle = "#333";
+      ctx.textAlign = "center";
+      ctx.fillText("Thank You for Your Feedback!", 250, 280);
+    }
+
+    drawSmiley();
+  </script>
+
+</body>
+</html>
