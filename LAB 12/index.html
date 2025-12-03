@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG Examples</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    svg { border: 1px solid #ccc; margin: 15px 0; }
+    h2 { margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+<h1>SVG Examples Lab</h1>
+
+<h2>1. Basic Rectangle</h2>
+<svg width="300" height="200">
+  <rect x="50" y="30" width="200" height="100" fill="lightblue" stroke="black" stroke-width="3"/>
+</svg>
+
+<h2>2. Circle</h2>
+<svg width="200" height="200">
+  <circle cx="100" cy="100" r="50" fill="yellow" stroke="black" stroke-width="3"/>
+</svg>
+
+<h2>3. Ellipse</h2>
+<svg width="300" height="200">
+  <ellipse cx="150" cy="100" rx="100" ry="50" fill="pink" stroke="black" stroke-width="3"/>
+</svg>
+
+<h2>4. Line</h2>
+<svg width="300" height="200">
+  <line x1="50" y1="50" x2="250" y2="150" stroke="blue" stroke-width="4"/>
+</svg>
+
+<h2>5. Polygon</h2>
+<svg width="300" height="200">
+  <polygon points="50,150 150,50 250,150" fill="lime" stroke="black" stroke-width="3"/>
+</svg>
+
+<h2>6. Polyline</h2>
+<svg width="300" height="200">
+  <polyline points="50,150 150,50 250,150 300,50" fill="none" stroke="red" stroke-width="3"/>
+</svg>
+
+<h2>7. Path</h2>
+<svg width="300" height="200">
+  <path d="M50 150 L150 50 L250 150 Z" fill="orange" stroke="black" stroke-width="3"/>
+</svg>
+
+<h2>8. Text</h2>
+<svg width="300" height="200">
+  <text x="50" y="100" font-size="24" fill="blue">Hello SVG</text>
+</svg>
+
+<h2>9. Linear Gradient Fill</h2>
+<svg width="300" height="200">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:red"/>
+      <stop offset="100%" style="stop-color:yellow"/>
+    </linearGradient>
+  </defs>
+  <rect x="50" y="50" width="200" height="100" fill="url(#grad)"/>
+</svg>
+
+<h2>10. Circle with Stroke Dash</h2>
+<svg width="300" height="200">
+  <circle cx="150" cy="100" r="80" fill="none" stroke="purple" stroke-width="10" stroke-dasharray="10,5"/>
+</svg>
+
+<h2>11. Drop Shadow</h2>
+<svg width="300" height="200">
+  <defs>
+    <filter id="dropShadow">
+      <feDropShadow dx="5" dy="5" stdDeviation="3" flood-color="gray"/>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="50" fill="orange" filter="url(#dropShadow)"/>
+</svg>
+
+<h2>12. Animation</h2>
+<svg width="300" height="200">
+  <circle cx="50" cy="100" r="30" fill="blue">
+    <animate attributeName="cx" from="50" to="250" dur="3s" repeatCount="indefinite"/>
+  </circle>
+</svg>
+
+<h2>13. Clickable Rectangle (SVG Scripting)</h2>
+<svg width="300" height="200" onclick="alert('SVG Clicked!')">
+  <rect x="50" y="50" width="200" height="100" fill="lightgreen"/>
+</svg>
+
+</body>
+</html>
