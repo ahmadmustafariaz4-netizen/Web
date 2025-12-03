@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login | LGU Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Welcome to LGU Portal</h2>
+    <p>Enter credentials to continue</p>
+
+    <form onsubmit="return loginUser(event)">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <br>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <p style="margin-top:12px; font-size:13px; opacity:0.9;">
+      Tip: any non-empty username/password will work (demo).
+    </p>
+  </div>
+
+  <script>
+    function loginUser(e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      if (!username || !password) {
+        alert('Please enter username and password.');
+        return false;
+      }
+      // Demo client-side login: store a simple flag
+      sessionStorage.setItem('lguLoggedIn', 'true');
+      // optional: store user name for greeting
+      sessionStorage.setItem('lguUser', username);
+      // redirect to home
+      window.location.href = 'index.html';
+      return false;
+    }
+
+    // If already logged in, go to index automatically
+    if (sessionStorage.getItem('lguLoggedIn') === 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

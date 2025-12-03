@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us | LGU Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+
+  <div class="container">
+    <h1>About LGU Portal</h1>
+    <p>
+      LGU Portal is a demonstration site showing a simple multi-page layout with client-side navigation.
+      This portal uses a modern, responsive UI and simple session flagging (sessionStorage) to simulate login/logout.
+    </p>
+
+    <h3>Mission</h3>
+    <p>To provide students and visitors with learning resources and a friendly portal experience.</p>
+
+    <img class="hero-img"
+      src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80"
+      alt="Students working">
+  </div>
+
+  <script>
+    if (sessionStorage.getItem('lguLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+    function logout() {
+      sessionStorage.removeItem('lguLoggedIn');
+      sessionStorage.removeItem('lguUser');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

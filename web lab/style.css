@@ -1,0 +1,125 @@
+/* General */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Navbar shared style */
+nav {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: transform .18s ease, background .18s ease;
+}
+nav a:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px); }
+
+/* Reusable card container */
+.container {
+  max-width: 980px;
+  margin: 56px auto;
+  padding: 28px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg,#ff6b6b,#ff4757);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(255,71,87,0.22); }
+
+/* Login page */
+.login-box {
+  max-width: 420px;
+  margin: 96px auto;
+  padding: 36px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.login-box h2 { margin: 0 0 8px; font-size: 24px; }
+.login-box p { margin: 0 0 18px; color: #f0f6fb; opacity: 0.95; }
+
+/* Inputs */
+input[type="text"], input[type="password"], input[type="email"], textarea {
+  width: 92%;
+  padding: 12px 14px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+input:focus, textarea:focus {
+  box-shadow: 0 0 10px rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.24);
+}
+
+/* Hero image */
+.hero-img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin-top: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* Contact page specific */
+.contact-box {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.contact-box h2 { text-align:center; margin-bottom: 14px; }
+.contact-box form { display:flex; flex-direction: column; gap:12px; }
+.contact-box button { align-self: center; width: 40%; }
+
+/* Content headings / paragraphs */
+h1, h2, h3, h4 { margin: 8px 0; color: #fff; }
+p { line-height: 1.6; color: rgba(255,255,255,0.95); }
+
+/* Responsive */
+@media (max-width: 700px) {
+  .container { margin: 48px 14px; padding: 18px; }
+  .login-box { margin: 64px 16px; padding: 20px; }
+  input[type="text"], input[type="password"], textarea { width: 96%; }
+  nav { gap: 8px; padding: 10px; }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact | LGU Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p style="text-align:center; margin-top:0;">We’d love to hear from you. Fill out the form below.</p>
+
+    <form onsubmit="return sendMessage(event)">
+      <input id="name" type="text" placeholder="Your name" required>
+      <input id="email" type="email" placeholder="Your email" required>
+      <textarea id="msg" rows="5" placeholder="Message..." required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <script>
+    if (sessionStorage.getItem('lguLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+
+    function sendMessage(e) {
+      e.preventDefault();
+      // demo behavior
+      alert('Thanks — your message has been sent (demo).');
+      document.querySelector('form').reset();
+      return false;
+    }
+
+    function logout() {
+      sessionStorage.removeItem('lguLoggedIn');
+      sessionStorage.removeItem('lguUser');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
